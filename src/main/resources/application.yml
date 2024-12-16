@@ -1,0 +1,24 @@
+spring:
+    application:
+        name: linked_out
+    thymeleaf:
+        check-template: true
+        cache: false
+        prefix: file:./src/main/resources/templates/
+
+    datasource:
+        url: jdbc:mysql://localhost:3306/linked_out?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+        username: root
+        password: 1234
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.MySQLDialect
+        defer-datasource-initialization: true
+        properties:
+            hibernate:
+                format_sql: true
+        hibernate:
+            ddl-auto: update
+    sql:
+        init:
+            mode: never
