@@ -6,6 +6,8 @@ import bg.softuni.LinkedOut.repository.CompanyRepository;
 import bg.softuni.LinkedOut.service.CompanyService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CompanyServiceImpl implements CompanyService {
 
@@ -27,6 +29,11 @@ public class CompanyServiceImpl implements CompanyService {
         return companyRepository.findById(id)
                 .map(CompanyServiceImpl::mapToCompanyDTO)
                 .orElse(null);
+    }
+
+    @Override
+    public List<Company> getAllCompanies() {
+        return companyRepository.findAll();
     }
 
     public static AddCompanyDTO mapToCompanyDTO(Company company) {

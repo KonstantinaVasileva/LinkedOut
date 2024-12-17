@@ -69,13 +69,23 @@
 					</fieldset>
 
                 <div class="form-group">
-                    <label for="company"><h5>All available companies</h5></label>
-                    <select multiple="false" class="form-control text-center" id="company" name="company">
-                        <option> First Company name</option>
-                        <option> Second Company name</option>
-                        <option> Third Company name</option>
+                    <label th:for="company">All available companies</label>
+                    <select th:field="*{companies}"
+                            th:errorclass="is-invalid"
+                            class="form-control text-center">
+<!--                            multiple="false" -->
+                        <option value=""> Select Company name</option>
+<!--                        <option> Second Company name</option>-->
+<!--                        <option> Third Company name</option>-->
+                        <option th:each="name : ${companies}"
+                             th:value="${id}"
+                            th:text="${name}">
+                            Company Name
+                        </option>
                     </select>
-                    <small>Error message</small>
+                    <small class="text-danger" th:if="${#fields.hasErrors('company')}"
+                    th:errors="company">
+                    >Error message</small>
 				</div>
 
                 <div class="form-group">
