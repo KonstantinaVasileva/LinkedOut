@@ -15,7 +15,7 @@ public record AddCompanyDTO(
         @Size(min = 10,
         message = "{add.company.description.length}")
         String description,
-        @Positive(message = "{add.company.budget.positive}")
+        @Positive(message = "{add.company.budget}")
         BigDecimal budget
 ) {
 }
