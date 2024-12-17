@@ -4,5 +4,6 @@ import bg.softuni.LinkedOut.model.dto.AddEmployeeDTO;
 
 public interface EmployeeService {
 
-    long addEmployees(AddEmployeeDTO addEmployeeDTO);
+    String addEmployees(AddEmployeeDTO addEmployeeDTO);
+    AddEmployeeDTO getEmployee(String id);
 }

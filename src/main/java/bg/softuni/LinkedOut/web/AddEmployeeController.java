@@ -40,7 +40,7 @@ public class AddEmployeeController {
             return "redirect:/employees/add";
         }
 
-        long id = employeeService.addEmployees(addEmployeeDTO);
+        String id = employeeService.addEmployees(addEmployeeDTO);
         return "redirect:/employees/" + id;
     }
 

@@ -41,7 +41,7 @@ public class AddCompanyController {
             return "redirect:/companies/add";
         }
 
-        long id = companyService.addCompany(addCompanyDTO);
+        String id = companyService.addCompany(addCompanyDTO);
 
         return "redirect:/companies/" + id;
     }

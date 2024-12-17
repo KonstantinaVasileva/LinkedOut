@@ -19,13 +19,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public long addEmployees(AddEmployeeDTO addEmployeeDTO) {
+    public String addEmployees(AddEmployeeDTO addEmployeeDTO) {
         Employee employee = modelMapper.map(addEmployeeDTO, Employee.class);
         employeeRepository.save(employee);
         return employee.getId();
     }
 
-    public AddEmployeeDTO getEmployee(long id) {
+    @Override
+    public AddEmployeeDTO getEmployee(String id) {
         return modelMapper.map(employeeRepository.findById(id), AddEmployeeDTO.class);
     }
 

@@ -10,7 +10,8 @@ import java.time.LocalDate;
 @Table(name = "employees")
 public class Employee {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -25,7 +26,7 @@ public class Employee {
     private LocalDate birthDate;
     private BigDecimal salary;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

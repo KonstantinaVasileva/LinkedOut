@@ -16,14 +16,14 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public long addCompany(AddCompanyDTO addCompanyDTO) {
+    public String addCompany(AddCompanyDTO addCompanyDTO) {
         Company company = mapToCompany(addCompanyDTO);
         companyRepository.save(company);
         return company.getId();
     }
 
     @Override
-    public AddCompanyDTO getCompany(Long id) {
+    public AddCompanyDTO getCompany(String id) {
         return companyRepository.findById(id)
                 .map(CompanyServiceImpl::mapToCompanyDTO)
                 .orElse(null);
