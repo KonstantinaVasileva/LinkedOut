@@ -15,5 +15,14 @@ public record AddEmployeeDTO(
         LocalDate birthDate,
         BigDecimal salary
 ) {
-
+    public static AddEmployeeDTO empty() {
+        return new AddEmployeeDTO(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
+    }
 }

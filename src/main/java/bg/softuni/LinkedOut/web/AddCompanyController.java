@@ -23,7 +23,7 @@ public class AddCompanyController {
 
     @GetMapping("/add")
     public String addCompany(Model model) {
-        if (!model.containsAttribute("addCompanyDTO")) {
+            if (!model.containsAttribute("addCompanyDTO")) {
             model.addAttribute("addCompanyDTO", new AddCompanyDTO(null, null, null, null));
         }
         return "company-add";
