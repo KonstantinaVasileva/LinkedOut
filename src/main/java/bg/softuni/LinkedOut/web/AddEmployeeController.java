@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -37,18 +38,16 @@ public class AddEmployeeController {
     }
 
     @PostMapping("/add")
-    public String addEmployees(AddEmployeeDTO addEmployeeDTO,
+    public String addEmployees(@ModelAttribute("addEmployeeDTO") AddEmployeeDTO addEmployeeDTO,
                                RedirectAttributes redirectAttributes,
                                BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("addEmployeeDTO", addEmployeeDTO);
             redirectAttributes.addFlashAttribute(
                     "org.springframework.validation.BindingResult.addEmployeeDTO",
-                    AddEmployeeDTO.empty());
+                    bindingResult);
             return "redirect:/employees/add";
         }
-
-
 
         String id = employeeService.addEmployees(addEmployeeDTO);
         return "redirect:/employees/" + id;
