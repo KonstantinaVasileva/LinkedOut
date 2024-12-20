@@ -31,7 +31,10 @@
         <div class="justify-content-center">
             <h1>Add Company</h1>
         </div>
-        <form class="m-md-auto w-50 text-center" th:action="@{/companies/add}" method="post" th:object="${addCompanyDTO}">
+        <form class="m-md-auto w-50 text-center"
+              th:action="@{/companies/add}"
+              method="post"
+              th:object="${addCompanyDTO}">
             <div class="form-group">
                 <label th:for="name">Name</label>
                 <input

@@ -39,8 +39,11 @@ public class AddEmployeeController {
 
     @PostMapping("/add")
     public String addEmployees(@ModelAttribute("addEmployeeDTO") AddEmployeeDTO addEmployeeDTO,
-                               RedirectAttributes redirectAttributes,
-                               BindingResult bindingResult) {
+                               BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes) {
+
+        System.out.println("Form submitted with data: " + addEmployeeDTO);
+
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("addEmployeeDTO", addEmployeeDTO);
             redirectAttributes.addFlashAttribute(
