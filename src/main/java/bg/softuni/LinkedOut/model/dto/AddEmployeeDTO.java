@@ -25,4 +25,17 @@ public record AddEmployeeDTO(
                 null,
                 null);
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", educationLevel=" + educationLevel +
+                ", company=" + company +
+                ", jobTitle='" + jobTitle + '\'' +
+                ", birthDate=" + birthDate +
+                ", salary=" + salary +
+                '}';
+    }
 }

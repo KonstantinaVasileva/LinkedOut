@@ -31,9 +31,10 @@ public class AddEmployeeController {
     public String addEmployees(Model model) {
         if (!model.containsAttribute("addEmployeeDTO")) {
             model.addAttribute("addEmployeeDTO", AddEmployeeDTO.empty());
+        }
             List<Company> companies = companyService.getAllCompanies();
             model.addAttribute("companies", companies);
-        }
+
         return "employee-add";
     }
 

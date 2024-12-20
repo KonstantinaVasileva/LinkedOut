@@ -26,7 +26,9 @@
 </header>
 <main>
     <div class="container">
-        <div class="row">
+        <div
+                th:object="${employee}"
+                class="row">
             <div class="col-md-2"></div>
             <main class="jumbotron text-center rounded col-md-12 align-self-center">
                 <div class="justify-content-center">
@@ -35,13 +37,26 @@
                 <div class="row">
                     <div class="col-md-6 bg-dark">
                         <h2>Employee</h2>
-                        <h4>First Name: {firstName}</h4>
-                        <h4>Last Name: {lastName}</h4>
-                        <h4>Education Level: {educationLevel}</h4>
-                        <h4>Job title: {jobTitle}</h4>
-                        <h4>Birthdate: {birthDate}</h4>
-                        <h4>Salary: {salary in format 10$}</h4>
-                        <h4>Company: {company name}</h4>
+                        <h4>First Name:
+                            <span th:text="${employee.firstName}">{firstName}</span>
+                            </h4>
+                        <h4>Last Name: <span th:text="${employee.lastName}">{lastName}</span></h4>
+                                             </h4>
+                        <h4>Education Level:
+                            <span th:text="${employee.educationLevel}">{educationLevel}</span>
+                            </h4>
+                        <h4>Job title:
+                            <span th:text="${employee.jobTitle}">{jobTitle}</span>
+                            </h4>
+                        <h4>Birthdate:
+                            <span th:text="${employee.birthDate}">{birthDate}</span>
+                            </h4>
+                        <h4>Salary:
+                            <span th:text="${employee.salary}">{salary}</span>
+                            </h4>
+                        <h4>Company:
+                            <span th:text="${employee.company.name}">{company}</span>
+                            </h4>
                         <div class="align-bottom">
 						<a class="btn btn-danger align-bottom"
                                                      href="/">Delete employee</a>
