@@ -27,31 +27,30 @@
 </header>
 <main>
     <div class="container">
-        <div
-                th:object="${company}"
-                class="row">
+        <div class="row">
             <div class="col-md-2"></div>
             <main class="jumbotron text-center rounded col-md-12 align-self-center">
                 <div class="justify-content-center">
                     <h1>Company Details</h1>
                 </div>
-                <div class="row">
+                <div class="row" th:each="company : ${company}">
                     <div class="col-md-6 bg-dark"><img src="/pic/company.png" height="350px"></div>
                     <div class="col-md-6 bg-dark">
                         <h2>Company</h2>
                         <h4>Name:
-                            <span th:text="*{name}">
+                            <span th:text="*{company.name}">
                             {name}</span> </h4>
                         <h4>Town:
-                            <span th:text="*{town}">
+                            <span th:text="*{company.town}">
                                   {town}</span> </h4>
                         <h4>Description:
-                            <span th:text="*{description}">{description}</span>
+                            <span th:text="*{company.description}">{description}</span>
                             </h4>
                         <h4>Budget:
-                            <span th:text="*{budget}">{budget}</span>
+                            <span th:text="*{company.budget}">{budget}</span>
                             </h4>
-                        <div class="align-bottom"><a class="btn btn-danger align-bottom"
+                        <div class="align-bottom" th:href="@{/companies/{id}(id=${company})}">
+                            <a class="btn btn-danger align-bottom"
                                                      href="/">Delete company</a>
                         </div>
                     </div>
