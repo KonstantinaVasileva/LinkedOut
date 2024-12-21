@@ -8,6 +8,8 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -59,6 +61,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 return employeeRepository.findById(id)
         .map(EmployeeServiceImpl::mapToAddEmployeeDTO)
         .orElse(null);
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
     }
 
     public static AddEmployeeDTO mapToAddEmployeeDTO(Employee employee) {

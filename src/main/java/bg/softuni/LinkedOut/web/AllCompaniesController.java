@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 @Controller
 public class AllCompaniesController {
 
@@ -17,9 +19,8 @@ public class AllCompaniesController {
 
     @GetMapping("/companies/all")
     public String allCompanies(Model model) {
-        for (Company company : companyService.getAllCompanies()) {
-            model.addAttribute(company);
-        }
+        List<Company> companies = companyService.getAllCompanies();
+        model.addAttribute("companies", companies);
         return "company-all";
     }
 
