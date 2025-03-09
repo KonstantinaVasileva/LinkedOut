@@ -15,6 +15,9 @@ public class Company {
     private String description;
     private BigDecimal budget;
 
+    public Company() {
+    }
+
     public String getId() {
         return id;
     }
